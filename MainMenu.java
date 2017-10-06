@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.*; 
 import java.awt.geom.Dimension2D; 
 
-public class MainMenu extends JFrame{
+public class MainMenu{
 
 	private LinkedList<JButton> buttons;
 	

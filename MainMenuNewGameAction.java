@@ -17,8 +17,10 @@ public class MainMenuNewGameAction implements ActionListener{
 			//let modules 'speak' to eachother
 			gameboard.addObserver(carddeck);
 			gameboard.addObserver(quiz);
+			
 			carddeck.addObserver(gameboard);
 			carddeck.addObserver(quiz);
+			
 			quiz.addObserver(gameboard);
 			quiz.addObserver(carddeck);
 			

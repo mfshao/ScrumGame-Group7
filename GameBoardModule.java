@@ -17,6 +17,8 @@ public class GameBoardModule extends Observable implements Observer{
 		JFrame frame = init();
 		//begin!
 		
+		
+		
 		//observer example.
 		setChanged();
 		notifyObservers("Hi. I am game board module. I am sending a message to all of my observers.");
@@ -43,5 +45,6 @@ public class GameBoardModule extends Observable implements Observer{
 		//check for type of o to know what module sent message
 		System.out.println("GameBoard received message: " + arg.toString());
 	}
+	
 	
 }
