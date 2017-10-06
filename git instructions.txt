@@ -10,3 +10,5 @@ to double check your working branch
 
 when pushing (after you commit locally)
 git push origin development
+
+your remote name should be 'origin' if not, replace origin with the remote name
