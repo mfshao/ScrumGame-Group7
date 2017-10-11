@@ -21,7 +21,9 @@ public class GameBoardModule extends Observable implements Observer{
 		JFrame frame = init();
 		//begin!
 		
-		frame.setContentPane(new DrawBoard());
+		JComponent click = new ClickEvent();
+		click.setOpaque(true);
+		frame.setContentPane(click);
 		
 		//observer example.
 		setChanged();
