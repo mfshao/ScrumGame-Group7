@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.FlowLayout;
 import java.util.*;  
 
+import java.awt.Image;
+import java.awt.Graphics;
+import java.awt.Color;
+
 public class GameBoardModule extends Observable implements Observer{
 
 	
@@ -17,14 +21,14 @@ public class GameBoardModule extends Observable implements Observer{
 		JFrame frame = init();
 		//begin!
 		
-		
+		frame.setContentPane(new DrawBoard());
 		
 		//observer example.
 		setChanged();
 		notifyObservers("Hi. I am game board module. I am sending a message to all of my observers.");
 		
 	}
-	
+
 	private JFrame init(){
 		
 		JFrame frame = new JFrame("Game Board Module");
