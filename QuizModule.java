@@ -64,6 +64,7 @@ public class QuizModule extends Observable implements Observer{
 
 	private void startButtonActionPerformed(ActionEvent e) {
         timer.start();
+				
     }
 
 	public void update(Observable o, Object arg) {
