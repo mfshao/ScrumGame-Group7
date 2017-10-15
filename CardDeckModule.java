@@ -36,9 +36,6 @@ public class CardDeckModule extends Observable implements Observer{
         JButton deckTwoButton = new JButton("Deck Two");
         JButton deckThreeButton = new JButton("Deck Three");
 
-        panel.add(deckOneButton);
-        panel.add(deckTwoButton);
-        panel.add(deckThreeButton);
 
         
 
@@ -47,6 +44,9 @@ public class CardDeckModule extends Observable implements Observer{
         frame.setLocation(0,600);
 
 
+        panel.add(deckOneButton);
+        panel.add(deckTwoButton);
+        panel.add(deckThreeButton);
 		
         //might be messy coding show/hiding these windows(?)
         frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
