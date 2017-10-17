@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.FlowLayout;
+import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.Timer;
 
@@ -32,14 +35,14 @@ public class QuizModule extends Observable implements Observer{
     panel.setLayout(new FlowLayout());
 		//place holder for the quiz question
 		JLabel question = new JLabel("QUESTION");
-		label.setPreferredSize(new Dimension(250,50));
+		question.setPreferredSize(new Dimension(250,50));
 		panel.add(question);
-		addButtons(panel);
+		//addButtons(panel);
 
 		JLabel choice = new JLabel("CHOICE");
-		label.setPreferredSize(new Dimension(250,50));
+		choice.setPreferredSize(new Dimension(250,50));
 		panel.add(choice);
-		addButtons(panel);
+		//addButtons(panel);
 
     frame.add(panel);
     frame.setSize(600, 300);
@@ -50,11 +53,12 @@ public class QuizModule extends Observable implements Observer{
 
 		timer = new Timer (500, new ActionListener(){
             public void actionPerformed(ActionEvent e) {
-                if (timerGetsToZero) {
-                    ((Timer)e.getSource()).stop();
-                } else {
-                    timeLabel.setText(getRemainingTime());
-                }
+                //if (timerGetsToZero) {
+                //    ((Timer)e.getSource()).stop();
+                //} else {
+                    //undefined below
+					//timeLabel.setText(getRemainingTime());
+                //}
             }
         });
 
