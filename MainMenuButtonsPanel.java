@@ -23,7 +23,7 @@ public class MainMenuButtonsPanel extends JPanel {
 	private JButton rulesButton;
     private JButton aboutUsButton;
     private JButton musicButton;
-    private BufferedImage allButtons;
+    private BufferedImage normalButtons;
     private BufferedImage musicButtons;
     private ImageIcon gNewGame;
     private ImageIcon yNewGame;
@@ -46,14 +46,14 @@ public class MainMenuButtonsPanel extends JPanel {
     
 	private void initImages() {
     	try {
-    		allButtons = ImageIO.read(new File(BUTTONS_IMAGE_PATH));
+    		normalButtons = ImageIO.read(new File(BUTTONS_IMAGE_PATH));
     		musicButtons = ImageIO.read(new File(MUSIC_BUTTON_IMAGE_PATH));
-    		gNewGame = new ImageIcon(allButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		yNewGame = new ImageIcon(allButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		gRules = new ImageIcon(allButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 1*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		yRules = new ImageIcon(allButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 1*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		gAboutUs = new ImageIcon(allButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 4*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		yAboutUs = new ImageIcon(allButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 4*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		gNewGame = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		yNewGame = new ImageIcon(normalButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		gRules = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 1*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		yRules = new ImageIcon(normalButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 1*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		gAboutUs = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 5*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
+    		yAboutUs = new ImageIcon(normalButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 5*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		gMusic = new ImageIcon(musicButtons.getSubimage(3*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		yMusic = new ImageIcon(musicButtons.getSubimage(2*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		gnMusic = new ImageIcon(musicButtons.getSubimage(1*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
