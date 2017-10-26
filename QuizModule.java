@@ -8,6 +8,9 @@ import javax.swing.Timer;
 
 public class QuizModule extends Observable implements Observer{
 
+	private static final int FRAME_WIDTH = 800;
+	private static final int FRAME_HEIGHT = 600;
+
 	public Timer timer = null;
 
 	public QuizModule(){
@@ -51,15 +54,27 @@ public class QuizModule extends Observable implements Observer{
     frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     frame.setVisible(true);
 
-		timer = new Timer (500, new ActionListener(){
-            public void actionPerformed(ActionEvent e) {
+		new Thread() {
+        int counter = 10;
+        public void run() {
+            while(counter >= 0) {
+                question.setText("Test" + (counter--));
+                try{
+                    Thread.sleep(1000);
+                } catch(Exception e) {}
+            }
+        }
+    }.start();
+
+		//timer = new Timer (500, new ActionListener(){
+            //public void actionPerformed(ActionEvent e) {
                 //if (timerGetsToZero) {
                 //    ((Timer)e.getSource()).stop();
                 //} else {
                     //undefined below
 					//timeLabel.setText(getRemainingTime());
                 //}
-            }
+            //}
         });
 
 		return frame;
@@ -68,7 +83,7 @@ public class QuizModule extends Observable implements Observer{
 
 	private void startButtonActionPerformed(ActionEvent e) {
         timer.start();
-				
+
     }
 
 	public void update(Observable o, Object arg) {
