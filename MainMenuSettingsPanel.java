@@ -144,27 +144,6 @@ public class MainMenuSettingsPanel extends JPanel {
 		}
     }
 	
-	private class OnStartButtonClickedListener implements ActionListener {
-		@Override
-		public void actionPerformed(ActionEvent e) {			
-			if (!ConfigurationManager.getConfigurationManager().getConfiguration().getBoardLenght().isEmpty() && ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams() != 0) {
-				System.out.println("Setup completed, start game");
-				GameBoardModule gbModule = new GameBoardModule();
-				gbModule.executeModule();
-				CardDeckModule cdModule = new CardDeckModule();
-				cdModule.executeModule();
-				QuizModule qModule = new QuizModule();
-				qModule.executeModule();
-			} else {
-				if (ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams() == 0) {
-					JOptionPane.showMessageDialog(mainMenu.getJf(), "Please select the Number of Teams!", "Setup Error", JOptionPane.ERROR_MESSAGE);	
-				} else {
-					JOptionPane.showMessageDialog(mainMenu.getJf(), "Please select a Board Length!", "Setup Error", JOptionPane.ERROR_MESSAGE);
-				}
-			}
-		}
-    }
-	
 	private class OnTeamsButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -210,7 +189,7 @@ public class MainMenuSettingsPanel extends JPanel {
 		startButton.setContentAreaFilled(false);
 		startButton.setRolloverIcon(yStart);
 		startButton.setRolloverEnabled(true);
-		startButton.addActionListener(new OnStartButtonClickedListener());
+		startButton.addActionListener(new MainMenuStartGameAction(mainMenu.getJf()));
 
 		cancelButton = new javax.swing.JButton(gCancel);
 		cancelButton.setBorder(BorderFactory.createEmptyBorder());
