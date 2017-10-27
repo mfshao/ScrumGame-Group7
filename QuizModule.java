@@ -75,7 +75,7 @@ public class QuizModule extends Observable implements Observer{
 					//timeLabel.setText(getRemainingTime());
                 //}
             //}
-        });
+//        });
 
 		return frame;
 

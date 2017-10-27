@@ -149,7 +149,12 @@ public class MainMenuSettingsPanel extends JPanel {
 		public void actionPerformed(ActionEvent e) {			
 			if (!ConfigurationManager.getConfigurationManager().getConfiguration().getBoardLenght().isEmpty() && ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams() != 0) {
 				System.out.println("Setup completed, start game");
-				// TODO: start game module
+				GameBoardModule gbModule = new GameBoardModule();
+				gbModule.executeModule();
+				CardDeckModule cdModule = new CardDeckModule();
+				cdModule.executeModule();
+				QuizModule qModule = new QuizModule();
+				qModule.executeModule();
 			} else {
 				if (ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams() == 0) {
 					JOptionPane.showMessageDialog(mainMenu.getJf(), "Please select the Number of Teams!", "Setup Error", JOptionPane.ERROR_MESSAGE);	
@@ -241,7 +246,7 @@ public class MainMenuSettingsPanel extends JPanel {
 		boardLengthButton1.setBorder(BorderFactory.createEmptyBorder());
 		boardLengthButton1.setContentAreaFilled(false);
 		boardLengthButton1.setSize(new java.awt.Dimension(110, 40));
-		boardLengthButton1.setName("v");
+		boardLengthButton1.setName("Short");
 		
 		boardLengthButton2 = new javax.swing.JButton(gBoardLength2);
 		boardLengthButton2.setBorder(BorderFactory.createEmptyBorder());
