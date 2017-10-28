@@ -33,11 +33,11 @@ public class QuizModule extends Observable implements Observer{
 	private JFrame init(){
 
 		JFrame frame = new JFrame("Quiz Module");
-    JPanel panel = new JPanel();
+        JPanel panel = new JPanel();
 		//change layout as needed
-    panel.setLayout(new FlowLayout());
+        panel.setLayout(new FlowLayout());
 		//place holder for the quiz question
-		JLabel question = new JLabel("QUESTION");
+		final JLabel question = new JLabel("QUESTION");
 		question.setPreferredSize(new Dimension(250,50));
 		panel.add(question);
 		//addButtons(panel);
@@ -47,12 +47,12 @@ public class QuizModule extends Observable implements Observer{
 		panel.add(choice);
 		//addButtons(panel);
 
-    frame.add(panel);
-    frame.setSize(600, 300);
-    frame.setLocation(0,300);
-    //might be messy coding show/hiding these windows(?)
-    frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-    frame.setVisible(true);
+		frame.add(panel);
+		frame.setSize(600, 300);
+		frame.setLocation(0,300);
+		//might be messy coding show/hiding these windows(?)
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.setVisible(true);
 
 		new Thread() {
         int counter = 10;
