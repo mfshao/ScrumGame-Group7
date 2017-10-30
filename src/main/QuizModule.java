@@ -51,7 +51,7 @@ public class QuizModule extends Observable implements Observer{
 		frame.setSize(600, 300);
 		frame.setLocation(0,300);
 		//might be messy coding show/hiding these windows(?)
-		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setVisible(true);
 
 		new Thread() {
