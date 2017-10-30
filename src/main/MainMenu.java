@@ -12,15 +12,15 @@ import javax.swing.JPanel;
 public class MainMenu {
 	private static final int FRAME_WIDTH = 800;
 	private static final int FRAME_HEIGHT = 600;
-	private static final String MAIN_MENU_BG_PATH = "images//game_main_menu_bg.png";
-	private static final String MAIN_MENU_TITLE_PATH = "images//game_logo.png";
+	private static final String MAIN_MENU_BG_PATH = "/images/game_main_menu_bg.png";
+	private static final String MAIN_MENU_TITLE_PATH = "/images/game_logo.png";
 	private JFrame jf;
 	private JPanel jPanel1;
     private JPanel jPanel2;
     private BufferedImage mainMenuBG;
     private BufferedImage mainMenuTitle;
     private JLabel titleLogo;
-    
+
     private class MainMenuPanel extends JPanel {
 		private static final long serialVersionUID = 1L;
 
@@ -29,7 +29,7 @@ public class MainMenu {
     		g.drawImage(mainMenuBG, 0, 0, getWidth(), getHeight(), this);
     	}
     }
-    
+
     public MainMenu() {
     }
 
@@ -37,15 +37,15 @@ public class MainMenu {
     	initImages();
 		initComponents();
 	}
-    
+
     public JFrame getJf() {
 		return jf;
 	}
 
     private void initImages() {
-    	try {			
-			mainMenuBG = ImageIO.read(new File(MAIN_MENU_BG_PATH));
-			mainMenuTitle = ImageIO.read(new File(MAIN_MENU_TITLE_PATH));
+    	try {
+			mainMenuBG = ImageIO.read(getClass().getResource(MAIN_MENU_BG_PATH));
+			mainMenuTitle = ImageIO.read(getClass().getResource(MAIN_MENU_TITLE_PATH));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -89,7 +89,7 @@ public class MainMenu {
         jf.setVisible(true);
         jf.setResizable(false);
     }
-    
+
     public void setPanel(JPanel jp) {
     	jPanel1.remove(jPanel2);
     	jPanel2 = jp;
@@ -112,8 +112,8 @@ public class MainMenu {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-        );   
-        jPanel1.validate(); 
-        jPanel1.repaint();  
+        );
+        jPanel1.validate();
+        jPanel1.repaint();
     }
 }

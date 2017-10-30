@@ -16,8 +16,8 @@ public class MainMenuButtonsPanel extends JPanel {
 	private static final int BUTTON_IMAGE_WIDTH = 220;
 	private static final int BUTTON_IMAGE_HEIGHT = 80;
 	private static final int MUSIC_BUTTON_IMAGE_WIDTH = 85;
-	private static final String BUTTONS_IMAGE_PATH = "images//buttons.png";
-	private static final String MUSIC_BUTTON_IMAGE_PATH = "images//music_button.png";
+	private static final String BUTTONS_IMAGE_PATH = "/images/buttons.png";
+	private static final String MUSIC_BUTTON_IMAGE_PATH = "/images/music_button.png";
 	private MainMenu mainMenu;
     private JButton newGameButton;
 	private JButton rulesButton;
@@ -34,7 +34,7 @@ public class MainMenuButtonsPanel extends JPanel {
     private ImageIcon gMusic;
     private ImageIcon yMusic;
     private ImageIcon gnMusic;
-    
+
 	private static final long serialVersionUID = 1L;
 
 	public MainMenuButtonsPanel(MainMenu mainMenu) {
@@ -43,11 +43,11 @@ public class MainMenuButtonsPanel extends JPanel {
 		initImages();
 		initComponents();
 	}
-    
+
 	private void initImages() {
     	try {
-    		normalButtons = ImageIO.read(new File(BUTTONS_IMAGE_PATH));
-    		musicButtons = ImageIO.read(new File(MUSIC_BUTTON_IMAGE_PATH));
+    		normalButtons = ImageIO.read(getClass().getResource(BUTTONS_IMAGE_PATH));
+    		musicButtons = ImageIO.read(getClass().getResource(MUSIC_BUTTON_IMAGE_PATH));
     		gNewGame = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		yNewGame = new ImageIcon(normalButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 2*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		gRules = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 1*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
@@ -61,7 +61,7 @@ public class MainMenuButtonsPanel extends JPanel {
 			e.printStackTrace();
 		}
     }
-	
+
 	private class OnMusicButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -69,7 +69,7 @@ public class MainMenuButtonsPanel extends JPanel {
 			setMusicButton();
 		}
     }
-	
+
 	private class OnNewGameButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -77,16 +77,16 @@ public class MainMenuButtonsPanel extends JPanel {
 			mainMenu.setPanel(settingPanel);
 		}
     }
-	
+
 	private void setMusicButton() {
 		if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
 			musicButton.setIcon(gnMusic);
 		} else {
 			musicButton.setIcon(gMusic);
-		}	
+		}
 		System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
 	}
-	
+
 	private void initComponents() {
 		newGameButton = new javax.swing.JButton(gNewGame);
         newGameButton.setBorder(BorderFactory.createEmptyBorder());
@@ -101,14 +101,14 @@ public class MainMenuButtonsPanel extends JPanel {
         rulesButton.setRolloverIcon(yRules);
         rulesButton.setRolloverEnabled(true);
         rulesButton.addActionListener(new MainMenuRulesAction());
-        
+
         aboutUsButton = new javax.swing.JButton(gAboutUs);
         aboutUsButton.setBorder(BorderFactory.createEmptyBorder());
         aboutUsButton.setContentAreaFilled(false);
         aboutUsButton.setRolloverIcon(yAboutUs);
         aboutUsButton.setRolloverEnabled(true);
         aboutUsButton.addActionListener(new MainMenuAboutUsAction());
-        
+
         musicButton = new javax.swing.JButton(gnMusic);
         musicButton.setBorder(BorderFactory.createEmptyBorder());
         musicButton.setContentAreaFilled(false);
@@ -147,8 +147,8 @@ public class MainMenuButtonsPanel extends JPanel {
                 .addContainerGap(76, Short.MAX_VALUE))
         );
         this.setOpaque(false);
-    }                                                     
-	
+    }
+
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}

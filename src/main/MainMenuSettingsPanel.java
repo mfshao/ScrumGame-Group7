@@ -16,18 +16,18 @@ import javax.swing.JPanel;
 
 public class MainMenuSettingsPanel extends JPanel {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	private static final int BUTTON_IMAGE_WIDTH = 220;
 	private static final int BUTTON_IMAGE_HEIGHT = 80;
 	private static final int SMALL_BUTTON_IMAGE_WIDTH = 110;
 	private static final int SMALL_BUTTON_IMAGE_HEIGHT = 40;
 	private static final int MUSIC_BUTTON_IMAGE_WIDTH = 85;
-	private static final String BUTTONS_IMAGE_PATH = "images//buttons.png";
-	private static final String MUSIC_BUTTON_IMAGE_PATH = "images//music_button.png";
-	private static final String SMALL_BUTTONS_IMAGE_PATH = "images//sm_buttons.png";
+	private static final String BUTTONS_IMAGE_PATH = "/images/buttons.png";
+	private static final String MUSIC_BUTTON_IMAGE_PATH = "/images/music_button.png";
+	private static final String SMALL_BUTTONS_IMAGE_PATH = "/images/sm_buttons.png";
 	private MainMenu mainMenu;
     private JButton startButton;
 	private JButton cancelButton;
@@ -82,12 +82,12 @@ public class MainMenuSettingsPanel extends JPanel {
 		initImages();
 		initComponents();
 	}
-	
+
 	private void initImages() {
     	try {
-    		normalButtons = ImageIO.read(new File(BUTTONS_IMAGE_PATH));
-    		musicButtons = ImageIO.read(new File(MUSIC_BUTTON_IMAGE_PATH));
-    		smallButtons = ImageIO.read(new File(SMALL_BUTTONS_IMAGE_PATH));
+    		normalButtons = ImageIO.read(getClass().getResource(BUTTONS_IMAGE_PATH));
+    		musicButtons = ImageIO.read(getClass().getResource(MUSIC_BUTTON_IMAGE_PATH));
+    		smallButtons = ImageIO.read(getClass().getResource(SMALL_BUTTONS_IMAGE_PATH));
     		gStart = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 0*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		yStart = new ImageIcon(normalButtons.getSubimage(2*BUTTON_IMAGE_WIDTH, 0*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		gCancel = new ImageIcon(normalButtons.getSubimage(3*BUTTON_IMAGE_WIDTH, 4*BUTTON_IMAGE_HEIGHT, BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
@@ -113,17 +113,17 @@ public class MainMenuSettingsPanel extends JPanel {
     		gBoardLength3 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		yBoardLength3 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		gnBoardLength3 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		
+
     		gTeams = new ImageIcon[]{gTeam1, gTeam2, gTeam3};
     		gnTeams = new ImageIcon[]{gnTeam1, gnTeam2, gnTeam3};
-    		
+
     		gBoardLengths = new ImageIcon[]{gBoardLength1, gBoardLength2, gBoardLength3};
     		gnBoardLengths = new ImageIcon[]{gnBoardLength1, gnBoardLength2, gnBoardLength3};
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
-	
+
 	private class OnMusicButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -131,19 +131,19 @@ public class MainMenuSettingsPanel extends JPanel {
 			setMusicButton();
 		}
     }
-	
+
 	private class OnCancelButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("Cancelled");
 			ConfigurationManager.getConfigurationManager().getConfiguration().setBoardLenght("");
 			ConfigurationManager.getConfigurationManager().getConfiguration().setNumberOfTeams(0);
-			
+
 			MainMenuButtonsPanel buttonsPanel = new MainMenuButtonsPanel(mainMenu);
 			mainMenu.setPanel(buttonsPanel);
 		}
     }
-	
+
 	private class OnTeamsButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -158,7 +158,7 @@ public class MainMenuSettingsPanel extends JPanel {
 			System.out.println("# of Teams: " + ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams());
 		}
     }
-	
+
 	private class OnBoardLengthButtonClickedListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -173,16 +173,16 @@ public class MainMenuSettingsPanel extends JPanel {
 			System.out.println("Board Length: " + ConfigurationManager.getConfigurationManager().getConfiguration().getBoardLenght());
 		}
     }
-	
+
 	private void setMusicButton() {
 		if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
 			musicButton.setIcon(gnMusic);
 		} else {
 			musicButton.setIcon(gMusic);
-		}	
+		}
 		System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
 	}
-	
+
 	private void initComponents() {
 		startButton = new javax.swing.JButton(gStart);
 		startButton.setBorder(BorderFactory.createEmptyBorder());
@@ -197,53 +197,53 @@ public class MainMenuSettingsPanel extends JPanel {
 		cancelButton.setRolloverIcon(yCancel);
 		cancelButton.setRolloverEnabled(true);
 		cancelButton.addActionListener(new OnCancelButtonClickedListener());
-		
+
 		teamsButton1 = new javax.swing.JButton(gTeam1);
 		teamsButton1.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton1.setContentAreaFilled(false);
 		teamsButton1.setSize(new java.awt.Dimension(110, 40));
 		teamsButton1.setName("2");
-		
+
 		teamsButton2 = new javax.swing.JButton(gTeam2);
 		teamsButton2.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton2.setContentAreaFilled(false);
 		teamsButton2.setSize(new java.awt.Dimension(110, 40));
 		teamsButton2.setName("3");
-		
+
 		teamsButton3 = new javax.swing.JButton(gTeam3);
 		teamsButton3.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton3.setContentAreaFilled(false);
 		teamsButton3.setSize(new java.awt.Dimension(110, 40));
 		teamsButton3.setName("4");
-        
+
 		teamsButtons = new JButton[]{teamsButton1, teamsButton2, teamsButton3};
 		for (JButton jb : teamsButtons) {
 			jb.addActionListener(new OnTeamsButtonClickedListener());
 		}
-		
+
 		boardLengthButton1 = new javax.swing.JButton(gBoardLength1);
 		boardLengthButton1.setBorder(BorderFactory.createEmptyBorder());
 		boardLengthButton1.setContentAreaFilled(false);
 		boardLengthButton1.setSize(new java.awt.Dimension(110, 40));
 		boardLengthButton1.setName("Short");
-		
+
 		boardLengthButton2 = new javax.swing.JButton(gBoardLength2);
 		boardLengthButton2.setBorder(BorderFactory.createEmptyBorder());
 		boardLengthButton2.setContentAreaFilled(false);
 		boardLengthButton2.setSize(new java.awt.Dimension(110, 40));
 		boardLengthButton2.setName("Medium");
-		
+
 		boardLengthButton3 = new javax.swing.JButton(gBoardLength3);
 		boardLengthButton3.setBorder(BorderFactory.createEmptyBorder());
 		boardLengthButton3.setContentAreaFilled(false);
 		boardLengthButton3.setSize(new java.awt.Dimension(110, 40));
 		boardLengthButton3.setName("Long");
-        
+
 		boardLengthButtons = new JButton[]{boardLengthButton1, boardLengthButton2, boardLengthButton3};
 		for (JButton jb : boardLengthButtons) {
 			jb.addActionListener(new OnBoardLengthButtonClickedListener());
 		}
-		
+
         musicButton = new javax.swing.JButton(gnMusic);
         musicButton.setBorder(BorderFactory.createEmptyBorder());
         musicButton.setContentAreaFilled(false);
@@ -329,8 +329,8 @@ public class MainMenuSettingsPanel extends JPanel {
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         this.setOpaque(false);
-    }                                                     
-	
+    }
+
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}
