@@ -1,29 +1,29 @@
-import javax.swing.*;
+import deck.Deck;
+import deckScheme.DeckScheme;
+import factory.CardFactory;
+import factory.DeckFactory;
+
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.util.*;  
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.Label;
+import java.util.ArrayList;
 
-public class CardDeckModule extends Observable implements Observer{
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
-	
-	public CardDeckModule(){
-		
-		//constructor
-		
-	}
+import actionListeners.DrawCardActionListener;
+import actionListeners.ShuffleDeckActionListener;
+import card.Card;
 
-	public void executeModule(){
-		
-		
-		JFrame frame = init();
-		//begin!
-		
-		//observer example.
-		setChanged();
-		notifyObservers("Hi. I am card deck. I am sending a message to all of my observers.");
-		
-	}
-	
-	private JFrame init(){
+public class Demo {
+
+	public static void main(String[] args) {
 		
 		DeckFactory deckFactory = new DeckFactory();
 		
@@ -400,6 +400,9 @@ public class CardDeckModule extends Observable implements Observer{
         panel.add(deck3Shuffle,c);
 	        
 	    
+       
+        
+        
         frame.getContentPane().add(panel);
         frame.setSize(600, 300);
         frame.setLocation(0,600);
@@ -407,15 +410,6 @@ public class CardDeckModule extends Observable implements Observer{
         //might be messy coding show/hiding these windows(?)
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-		return frame;
-		
-	}
 	
-	public void update(Observable o, Object arg) {
-		//check for type of o to know what module sent message
-		System.out.println("CardDeck received message: " + arg.toString());
 	}
-
-
-	
 }

@@ -1,0 +1,12 @@
+to compile:
+
+1) run command prompt from your source directory
+2) run the below command to build into the bin folder
+javac -d bin Main.java
+
+*take note to not overwrite the images folder (it shouldn't)
+
+to run:
+1) run command prompt in your bin folder
+2) run the below command
+java Main
