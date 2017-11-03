@@ -1,3 +1,0 @@
-put backup images here in case bin folder gets wiped
-
-bin should have folder named "images" 
