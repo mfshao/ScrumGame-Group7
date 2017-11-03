@@ -47,15 +47,15 @@ public class MainMenuSettingsPanel extends JPanel {
     private ImageIcon yStart;
     private ImageIcon gCancel;
     private ImageIcon yCancel;
-    private ImageIcon gTeam1;
-    private ImageIcon yTeam1;
-    private ImageIcon gnTeam1;
     private ImageIcon gTeam2;
     private ImageIcon yTeam2;
     private ImageIcon gnTeam2;
     private ImageIcon gTeam3;
     private ImageIcon yTeam3;
     private ImageIcon gnTeam3;
+    private ImageIcon gTeam4;
+    private ImageIcon yTeam4;
+    private ImageIcon gnTeam4;
     private ImageIcon gBoardLength1;
     private ImageIcon yBoardLength1;
     private ImageIcon gnBoardLength1;
@@ -95,27 +95,27 @@ public class MainMenuSettingsPanel extends JPanel {
     		gMusic = new ImageIcon(musicButtons.getSubimage(3*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		yMusic = new ImageIcon(musicButtons.getSubimage(2*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
     		gnMusic = new ImageIcon(musicButtons.getSubimage(1*MUSIC_BUTTON_IMAGE_WIDTH, 0, MUSIC_BUTTON_IMAGE_WIDTH, BUTTON_IMAGE_HEIGHT));
-    		gTeam1 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 0*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		yTeam1 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 0*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gnTeam1 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 0*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		gTeam2 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 1*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		yTeam2 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 1*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		gnTeam2 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 1*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		gTeam3 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 2*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		yTeam3 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 2*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
     		gnTeam3 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 2*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gBoardLength1 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		yBoardLength1 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gnBoardLength1 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gBoardLength2 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		yBoardLength2 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gnBoardLength2 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gBoardLength3 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		yBoardLength3 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
-    		gnBoardLength3 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gTeam4 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		yTeam4 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gnTeam4 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 3*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gBoardLength1 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		yBoardLength1 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gnBoardLength1 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 4*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gBoardLength2 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		yBoardLength2 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gnBoardLength2 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 5*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gBoardLength3 = new ImageIcon(smallButtons.getSubimage(3*SMALL_BUTTON_IMAGE_WIDTH, 6*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		yBoardLength3 = new ImageIcon(smallButtons.getSubimage(2*SMALL_BUTTON_IMAGE_WIDTH, 6*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
+    		gnBoardLength3 = new ImageIcon(smallButtons.getSubimage(1*SMALL_BUTTON_IMAGE_WIDTH, 6*SMALL_BUTTON_IMAGE_HEIGHT, SMALL_BUTTON_IMAGE_WIDTH, SMALL_BUTTON_IMAGE_HEIGHT));
 
-    		gTeams = new ImageIcon[]{gTeam1, gTeam2, gTeam3};
-    		gnTeams = new ImageIcon[]{gnTeam1, gnTeam2, gnTeam3};
+    		gTeams = new ImageIcon[]{gTeam2, gTeam3, gTeam4};
+    		gnTeams = new ImageIcon[]{gnTeam2, gnTeam3, gnTeam4};
 
     		gBoardLengths = new ImageIcon[]{gBoardLength1, gBoardLength2, gBoardLength3};
     		gnBoardLengths = new ImageIcon[]{gnBoardLength1, gnBoardLength2, gnBoardLength3};
@@ -198,19 +198,19 @@ public class MainMenuSettingsPanel extends JPanel {
 		cancelButton.setRolloverEnabled(true);
 		cancelButton.addActionListener(new OnCancelButtonClickedListener());
 
-		teamsButton1 = new javax.swing.JButton(gTeam1);
+		teamsButton1 = new javax.swing.JButton(gTeam2);
 		teamsButton1.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton1.setContentAreaFilled(false);
 		teamsButton1.setSize(new java.awt.Dimension(110, 40));
 		teamsButton1.setName("2");
 
-		teamsButton2 = new javax.swing.JButton(gTeam2);
+		teamsButton2 = new javax.swing.JButton(gTeam3);
 		teamsButton2.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton2.setContentAreaFilled(false);
 		teamsButton2.setSize(new java.awt.Dimension(110, 40));
 		teamsButton2.setName("3");
 
-		teamsButton3 = new javax.swing.JButton(gTeam3);
+		teamsButton3 = new javax.swing.JButton(gTeam4);
 		teamsButton3.setBorder(BorderFactory.createEmptyBorder());
 		teamsButton3.setContentAreaFilled(false);
 		teamsButton3.setSize(new java.awt.Dimension(110, 40));
