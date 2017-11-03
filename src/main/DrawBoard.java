@@ -7,10 +7,9 @@ import java.io.File;
 public class DrawBoard extends JPanel
 {
 	private String boardLength = "";
-	private String src = "";
 	
 	public DrawBoard()
-	{
+	{		
 		boardLength =
 		ConfigurationManager.getConfigurationManager().getConfiguration().getBoardLenght();
 		
@@ -30,28 +29,24 @@ public class DrawBoard extends JPanel
 				break;
 		}
 		
-		System.out.println("FILE IN " + src);
-		
 	}
 	
 	private void drawShort()
-	{
-		src = "/images/Short.png";
-		
+	{		
 		try{
-		BufferedImage image = ImageIO.read(new File("/images/Short.png"));
+		BufferedImage image = ImageIO.read(getClass().getResource("images/Short.png"));
 		JLabel label = new JLabel(new ImageIcon(image));
 		
 		this.add(label);
 		} catch (IOException e){
-			
+			System.out.println("failed to load /images/Short.png");
 		}
 	}
 	
 	private void drawMed()
 	{
 		try{
-		BufferedImage image = ImageIO.read(new File("/images/Medium.png"));
+		BufferedImage image = ImageIO.read(getClass().getResource("images/Medium.png"));
 		JLabel label = new JLabel(new ImageIcon(image));
 		this.add(label);
 		} catch (IOException e){
@@ -62,7 +57,7 @@ public class DrawBoard extends JPanel
 	private void drawLong()
 	{
 		try{
-		BufferedImage image = ImageIO.read(new File("/images/Long.png"));
+		BufferedImage image = ImageIO.read(getClass().getResource("/images/Long.png"));
 		JLabel label = new JLabel(new ImageIcon(image));
 		this.add(label);
 		} catch (IOException e){
