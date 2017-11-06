@@ -2,6 +2,7 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
+import java.awt.Font;
 import java.awt.Component;
 import javax.swing.Box;
 import java.awt.Dimension;
@@ -11,6 +12,8 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import java.io.IOException;
 import java.io.File;
+import javax.swing.border.LineBorder;
+import java.util.Collections;
 
 import java.util.*;
 
@@ -23,6 +26,7 @@ public class PlayerMan extends JPanel
 	private BufferedImage figures;
 	private String FIGURE_IMAGE_PATH = "images/figures.png";
 	private int scale = 50;
+	private static int imageXY = 50;
 	private static String boardLength = "";
 	private static List<ImageIcon> imageList = new ArrayList<ImageIcon>();
 	
@@ -58,9 +62,39 @@ public class PlayerMan extends JPanel
 			
 			this.add(Box.createRigidArea(new Dimension(0,25)));
 		}
+
+		setText();
 		
 	}
 	
+	private void setText()
+	{
+		JPanel textPan = new JPanel();
+		
+		JLabel text1 = new JLabel("Select Player");
+		text1.setFont(new Font("Verdana",1,15));
+		text1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		textPan.add(text1);
+		
+		JLabel text2 = new JLabel("to move");
+		text2.setFont(new Font("Verdana",1,15));
+		text2.setAlignmentX(Component.CENTER_ALIGNMENT);
+		textPan.add(text2);
+		
+		JLabel text3 = new JLabel("player image.");
+		text3.setFont(new Font("Verdana",1,15));
+		text3.setAlignmentX(Component.CENTER_ALIGNMENT);
+		textPan.add(text3);
+		
+		textPan.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		this.add(textPan);
+	}
+	
+	/*
+	 * Methods used for players 
+	 * creation and movement methods
+	 */
 	private void initFigureImgs()
 	{
 		try{
@@ -112,8 +146,8 @@ public class PlayerMan extends JPanel
 	{
 		posX=145 + (75 * i);
 		posY =715;
-		width = 50;
-		height = 50;
+		width = imageXY;
+		height = imageXY;
 		
 		label.setBounds(posX,posY,width,height);
 		
@@ -122,17 +156,17 @@ public class PlayerMan extends JPanel
 	{
 		posX=145 + (75 * i);
 		posY =715;
-		width = 50;
-		height = 50;
+		width = imageXY;
+		height = imageXY;
 		
 		label.setBounds(posX,posY,width,height);
 	}
 	private static void setLongPos(JLabel label, int i)
 	{
 		posX=15 + (50 * i);
-		posY =750;
-		width = 50;
-		height = 50;
+		posY =740;
+		width = imageXY;
+		height = imageXY;
 		
 		label.setBounds(posX,posY,width,height);
 	}
