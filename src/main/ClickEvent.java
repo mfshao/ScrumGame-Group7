@@ -101,6 +101,9 @@ public class ClickEvent extends JLayeredPane implements MouseListener
 		this.players =
 		ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams();
 		
+		System.out.println("*******Players: "+this.players+"************");
+		
+		
 		for(int i = 1; i <= players; i++)
 		{
 			figure = PlayerMan.getPlayer(i-1);
