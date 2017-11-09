@@ -2,14 +2,15 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
+//import java.io.File;
+//import java.io.IOException;
+import java.io.*;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+
 
 public class MainMenuButtonsPanel extends JPanel {
 
@@ -18,6 +19,7 @@ public class MainMenuButtonsPanel extends JPanel {
 	private static final int MUSIC_BUTTON_IMAGE_WIDTH = 85;
 	private static final String BUTTONS_IMAGE_PATH = "/images/buttons.png";
 	private static final String MUSIC_BUTTON_IMAGE_PATH = "/images/music_button.png";
+	private static final String MUSIC_TRACK_PATH = "/images/Anything Goes.mp3";
 	private MainMenu mainMenu;
     private JButton newGameButton;
 	private JButton rulesButton;
@@ -34,6 +36,7 @@ public class MainMenuButtonsPanel extends JPanel {
     private ImageIcon gMusic;
     private ImageIcon yMusic;
     private ImageIcon gnMusic;
+
 
 	private static final long serialVersionUID = 1L;
 
@@ -80,10 +83,11 @@ public class MainMenuButtonsPanel extends JPanel {
 
 	private void setMusicButton() {
 		if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
-			musicButton.setIcon(gnMusic);
+			musicButton.setIcon(gnMusic);			
 		} else {
 			musicButton.setIcon(gMusic);
 		}
+		
 		System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
 	}
 
