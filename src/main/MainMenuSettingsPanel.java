@@ -3,9 +3,10 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
+import java.io.*;
+//import java.io.File;
+//import java.io.IOException;
+import javax.sound.sampled.*;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -28,6 +29,7 @@ public class MainMenuSettingsPanel extends JPanel {
 	private static final String BUTTONS_IMAGE_PATH = "/images/buttons.png";
 	private static final String MUSIC_BUTTON_IMAGE_PATH = "/images/music_button.png";
 	private static final String SMALL_BUTTONS_IMAGE_PATH = "/images/sm_buttons.png";
+	private static final String MUSIC_TRACK_PATH = "/images/Anything_Goes.wav";
 	private MainMenu mainMenu;
     private JButton startButton;
 	private JButton cancelButton;
@@ -175,12 +177,33 @@ public class MainMenuSettingsPanel extends JPanel {
     }
 
 	private void setMusicButton() {
-		if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
-			musicButton.setIcon(gnMusic);
-		} else {
-			musicButton.setIcon(gMusic);
-		}
-		System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
+		try{
+				if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
+					musicButton.setIcon(gnMusic);
+					if(MainMenuButtonsPanel.music == null){
+						MainMenuButtonsPanel.music = AudioSystem.getClip();
+						MainMenuButtonsPanel.music.open(AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream(MUSIC_TRACK_PATH))));
+					}else{
+						MainMenuButtonsPanel.music.stop();
+					}
+					
+					MainMenuButtonsPanel.music.start();
+					MainMenuButtonsPanel.music.loop(Clip.LOOP_CONTINUOUSLY);
+				} else {
+					musicButton.setIcon(gMusic);
+					if(MainMenuButtonsPanel.music != null){
+						MainMenuButtonsPanel.music.stop();
+					}
+				}
+				
+				System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
+		} catch(LineUnavailableException x){
+				x.printStackTrace();
+			} catch(UnsupportedAudioFileException x){
+				x.printStackTrace();
+			} catch(IOException x){
+				x.printStackTrace();
+			}
 	}
 
 	private void initComponents() {

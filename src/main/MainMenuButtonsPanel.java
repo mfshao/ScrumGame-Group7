@@ -39,7 +39,7 @@ public class MainMenuButtonsPanel extends JPanel {
     private ImageIcon gMusic;
     private ImageIcon yMusic;
     private ImageIcon gnMusic;
-	private Clip music;
+	public static Clip music;
 
 	private static final long serialVersionUID = 1L;
 
