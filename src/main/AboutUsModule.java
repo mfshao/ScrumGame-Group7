@@ -1,5 +1,6 @@
 import javax.swing.*;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.util.*;
 
 public class AboutUsModule implements Observer{
@@ -15,23 +16,47 @@ public class AboutUsModule implements Observer{
 
 
 		JFrame frame = init();
-		//begin!
+		JPanel panel = new JPanel();
+        panel.setLayout(new GridLayout(1,1));
+		fillPanel(panel);
+        frame.add(panel);
 
 	}
 
 	private JFrame init(){
 
 		JFrame frame = new JFrame("Credits Module");
-        JPanel panel = new JPanel();
 		//change layout as needed
-        panel.setLayout(new FlowLayout());
-        frame.add(panel);
         frame.setSize(300, 300);
         frame.setLocation(300,0);
         //might be messy coding show/hiding these windows(?)
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
 		return frame;
+
+	}
+	
+	private void fillPanel(JPanel panel){
+
+		JTextArea textArea = new JTextArea(5, 20);
+		textArea.setMargin(new Insets(10,10,10,10));
+		JScrollPane scrollPane = new JScrollPane(textArea);
+		textArea.setEditable(false);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+
+		textArea.append("Jeff Easton: Product Owner/Developer. Graduate MS Computer Science student. 2 more classes to graduate!\n\n");
+
+		textArea.append("Adam Gruszczynski: Depaul University Senior in Bachelor/Masters Program. Avid gamer and creator of the Card Deck Module.\n\n");
+
+		textArea.append("Travis Shao: \n\n");
+		
+		textArea.append("Clarke Roche: \n\n");
+		
+		textArea.append("Francisco De La O: \n\n");
+
+		panel.add(scrollPane);
+
 
 	}
 
