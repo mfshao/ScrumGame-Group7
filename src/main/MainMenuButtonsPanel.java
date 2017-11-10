@@ -10,6 +10,9 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.sound.sampled.*;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Clip;
 
 
 public class MainMenuButtonsPanel extends JPanel {
@@ -19,7 +22,7 @@ public class MainMenuButtonsPanel extends JPanel {
 	private static final int MUSIC_BUTTON_IMAGE_WIDTH = 85;
 	private static final String BUTTONS_IMAGE_PATH = "/images/buttons.png";
 	private static final String MUSIC_BUTTON_IMAGE_PATH = "/images/music_button.png";
-	private static final String MUSIC_TRACK_PATH = "/images/Anything Goes.mp3";
+	private static final String MUSIC_TRACK_PATH = "/images/Anything_Goes.wav";
 	private MainMenu mainMenu;
     private JButton newGameButton;
 	private JButton rulesButton;
@@ -36,7 +39,7 @@ public class MainMenuButtonsPanel extends JPanel {
     private ImageIcon gMusic;
     private ImageIcon yMusic;
     private ImageIcon gnMusic;
-
+	private Clip music;
 
 	private static final long serialVersionUID = 1L;
 
@@ -44,7 +47,12 @@ public class MainMenuButtonsPanel extends JPanel {
 		System.out.println("panel m created");
 		this.mainMenu = mainMenu;
 		initImages();
-		initComponents();
+		try{
+			initComponents();
+		}catch(LineUnavailableException e){
+			e.printStackTrace();
+		}
+		
 	}
 
 	private void initImages() {
@@ -65,11 +73,13 @@ public class MainMenuButtonsPanel extends JPanel {
 		}
     }
 
-	private class OnMusicButtonClickedListener implements ActionListener {
+	private class OnMusicButtonClickedListener implements ActionListener  {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			ConfigurationManager.getConfigurationManager().getConfiguration().toggleMusic();
-			setMusicButton();
+     		setMusicButton();
+
+			
 		}
     }
 
@@ -81,17 +91,37 @@ public class MainMenuButtonsPanel extends JPanel {
 		}
     }
 
-	private void setMusicButton() {
-		if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
-			musicButton.setIcon(gnMusic);			
-		} else {
-			musicButton.setIcon(gMusic);
-		}
-		
-		System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
+	private void setMusicButton(){
+		try{
+				if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
+					musicButton.setIcon(gnMusic);
+					if(music == null){
+						music = AudioSystem.getClip();
+						music.open(AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream(MUSIC_TRACK_PATH))));
+					}else{
+						music.stop();
+					}
+					
+					music.start();
+					music.loop(Clip.LOOP_CONTINUOUSLY);
+				} else {
+					musicButton.setIcon(gMusic);
+					if(music != null){
+						music.stop();
+					}
+				}
+				
+				System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
+		} catch(LineUnavailableException x){
+				x.printStackTrace();
+			} catch(UnsupportedAudioFileException x){
+				x.printStackTrace();
+			} catch(IOException x){
+				x.printStackTrace();
+			}
 	}
 
-	private void initComponents() {
+	private void initComponents() throws LineUnavailableException {
 		newGameButton = new javax.swing.JButton(gNewGame);
         newGameButton.setBorder(BorderFactory.createEmptyBorder());
         newGameButton.setContentAreaFilled(false);
@@ -119,7 +149,10 @@ public class MainMenuButtonsPanel extends JPanel {
         musicButton.setRolloverIcon(yMusic);
         musicButton.setRolloverEnabled(true);
         musicButton.addActionListener(new OnMusicButtonClickedListener());
-        setMusicButton();
+
+			setMusicButton();
+
+        
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
         this.setLayout(jPanel2Layout);
