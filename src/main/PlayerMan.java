@@ -21,7 +21,12 @@ public class PlayerMan extends JPanel
 {
 	private JButton p1Button;	
 	private int totalPlayers = 1;
+	private static int totalPlayersStat = 1;
 	private int MaxPlayers = 4;
+	private Random rand = new Random();
+	private int randIndex = 0;
+	private int current = 0;
+	private static int currentStatic = 0;
 	
 	private BufferedImage figures;
 	private String FIGURE_IMAGE_PATH = "images/figures.png";
@@ -37,6 +42,7 @@ public class PlayerMan extends JPanel
 	
 	public PlayerMan()
 	{
+		this.setRandomIndex();
 		this.initFigureImgs();
 		this.setButton();
 	}
@@ -46,9 +52,6 @@ public class PlayerMan extends JPanel
 		this.setLayout(new BoxLayout (this, BoxLayout.Y_AXIS));	
 		this.add(Box.createRigidArea(new Dimension(0,100)));
 		
-		this.totalPlayers = 
-		ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams();
-		
 		for (int i = 1; i <= totalPlayers; i++)
 		{
 			p1Button = new Player(i);
@@ -56,13 +59,13 @@ public class PlayerMan extends JPanel
 			this.add(p1Button);
 			
 			JLabel label = new JLabel();
-			label.setIcon(imageList.get(i-1));
+			label.setIcon(imageList.get(current));
+			this.updateIndex();
 			label.setAlignmentX(Component.CENTER_ALIGNMENT);
 			this.add(label);
 			
 			this.add(Box.createRigidArea(new Dimension(0,25)));
 		}
-
 		setText();
 		
 	}
@@ -91,6 +94,40 @@ public class PlayerMan extends JPanel
 		this.add(textPan);
 	}
 	
+	private void setRandomIndex()
+	{
+		this.totalPlayers = 
+		ConfigurationManager.getConfigurationManager().getConfiguration().getNumberOfTeams();
+		
+		randIndex = rand.nextInt(totalPlayers + 1);
+		current = randIndex;
+		PlayerMan.currentStatic = randIndex;
+		PlayerMan.totalPlayersStat = totalPlayers;
+		System.out.println("Players: "+totalPlayers+" Rand: "+randIndex+" C:"+current);
+	}
+	
+	private void updateIndex()
+	{		
+		current = current + 1;
+		
+		System.out.println("Index: "+current);
+		if (current > (totalPlayers - 1) && current != 0)
+		{
+			System.out.println("SET TO ZERO");
+			current = 0;
+		}
+	}
+	private static void updateIndexStatic()
+	{
+		currentStatic = currentStatic + 1;
+		
+		System.out.println("Index: "+currentStatic);
+		if (currentStatic > (totalPlayersStat - 1) && currentStatic != 0)
+		{
+			System.out.println("SET TO ZERO");
+			currentStatic = 0;
+		}
+	}
 	/*
 	 * Methods used for players 
 	 * creation and movement methods
@@ -115,7 +152,8 @@ public class PlayerMan extends JPanel
 	public static JLabel getPlayer(int i)
 	{
 		JLabel label = new JLabel();
-		label.setIcon(imageList.get(i));
+		label.setIcon(imageList.get(currentStatic));
+		updateIndexStatic();
 		setPosition(label, i);
 		return label;
 	}
