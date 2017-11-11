@@ -49,7 +49,7 @@ public class AboutUsModule implements Observer{
 
 		textArea.append("Adam Gruszczynski: Depaul University Senior in Bachelor/Masters Program. Avid gamer and creator of the Card Deck Module.\n\n");
 
-		textArea.append("Travis Shao: \n\n");
+		textArea.append("Mingfei (Travis) Shao: Developer/Main Menu and Settings Menu. Master student in Computer Science. Loves everything about video games, civil aviation and good foods. \n\n");
 		
 		textArea.append("Clarke Roche: \n\n");
 		
