@@ -53,7 +53,8 @@ public class AboutUsModule implements Observer{
 		
 		textArea.append("Clarke Roche: \n\n");
 		
-		textArea.append("Francisco De La O: \n\n");
+		textArea.append("Francisco De La O: Developer/GameBoard Module. After completing my hot air balloon race around the world I thought "
+		+"I would try something more challenging that is why I have chosen a carrier in software development.\n\n");
 
 		panel.add(scrollPane);
 
