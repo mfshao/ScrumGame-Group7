@@ -96,7 +96,7 @@ public class MainMenuButtonsPanel extends JPanel {
 				if (ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn()) {
 					musicButton.setIcon(gnMusic);
 					if(music == null){
-						music = AudioSystem.getClip();
+						music = AudioSystem.getClip(null);
 						music.open(AudioSystem.getAudioInputStream(new BufferedInputStream(getClass().getResourceAsStream(MUSIC_TRACK_PATH))));
 					}else{
 						music.stop();
