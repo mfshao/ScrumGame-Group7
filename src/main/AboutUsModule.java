@@ -30,12 +30,19 @@ public class AboutUsModule implements Observer{
         frame.setSize(300, 300);
         frame.setLocation(300,0);
         //might be messy coding show/hiding these windows(?)
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+				frame.addWindowListener(new java.awt.event.WindowAdapter() {
+					@Override
+					public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+						ConfigurationManager.getConfigurationManager().getConfiguration().setAboutUsStatus(false);
+						frame.dispose();
+					}
+				});
         frame.setVisible(true);
 		return frame;
 
 	}
-	
+
 	private void fillPanel(JPanel panel){
 
 		JTextArea textArea = new JTextArea(5, 20);
@@ -50,9 +57,9 @@ public class AboutUsModule implements Observer{
 		textArea.append("Adam Gruszczynski: Depaul University Senior in Bachelor/Masters Program. Avid gamer and creator of the Card Deck Module.\n\n");
 
 		textArea.append("Mingfei (Travis) Shao: Developer/Main Menu and Settings Menu. Master student in Computer Science. Loves everything about video games, civil aviation and good foods. \n\n");
-		
+
 		textArea.append("Clarke Roche: \n\n");
-		
+
 		textArea.append("Francisco De La O: Developer/GameBoard Module. After completing my hot air balloon race around the world I thought "
 		+"I would try something more challenging that is why I have chosen a carrier in software development.\n\n");
 

@@ -3,6 +3,7 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.awt.Color;
 import java.io.*;
 //import java.io.File;
 //import java.io.IOException;
@@ -186,7 +187,7 @@ public class MainMenuSettingsPanel extends JPanel {
 					}else{
 						MainMenuButtonsPanel.music.stop();
 					}
-					
+
 					MainMenuButtonsPanel.music.start();
 					MainMenuButtonsPanel.music.loop(Clip.LOOP_CONTINUOUSLY);
 				} else {
@@ -195,7 +196,7 @@ public class MainMenuSettingsPanel extends JPanel {
 						MainMenuButtonsPanel.music.stop();
 					}
 				}
-				
+
 				System.out.println("Music on: " + ConfigurationManager.getConfigurationManager().getConfiguration().isMusicOn());
 		} catch(LineUnavailableException x){
 				x.printStackTrace();
@@ -281,12 +282,15 @@ public class MainMenuSettingsPanel extends JPanel {
 
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel2.setText("Game Setup");
+				jLabel2.setForeground(Color.WHITE);
 
         jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel3.setText("Board Length:");
+				jLabel3.setForeground(Color.WHITE);
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
         jLabel4.setText("Number of Teams:");
+				jLabel4.setForeground(Color.WHITE);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(this);
         this.setLayout(jPanel2Layout);

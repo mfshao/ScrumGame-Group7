@@ -3,6 +3,8 @@ public class Configuration {
 	private int numberOfTeams = 0;
 	private String boardLenght = "";
 	private boolean isMusicOn = true;
+	private boolean isAboutUsInitialized = false;
+	private boolean isRulesInitialized = false;
 
 	public Configuration() {
 	}
@@ -30,8 +32,24 @@ public class Configuration {
 	public void setMusicOn(boolean isMusicOn) {
 		this.isMusicOn = isMusicOn;
 	}
-	
+
 	public void toggleMusic() {
 		this.isMusicOn = !this.isMusicOn;
+	}
+
+	public boolean isAboutUsInitialized() {
+		return isAboutUsInitialized;
+	}
+
+	public void setAboutUsStatus(boolean status) {
+		this.isAboutUsInitialized = status;
+	}
+
+	public boolean isRulesInitialized() {
+		return isRulesInitialized;
+	}
+
+	public void setRulesStatus(boolean status) {
+		this.isRulesInitialized = status;
 	}
 }

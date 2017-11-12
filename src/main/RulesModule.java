@@ -29,7 +29,14 @@ public class RulesModule implements Observer{
         frame.setSize(600, 600);
         frame.setLocation(300,0);
         //might be messy coding show/hiding these windows(?)
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+				frame.addWindowListener(new java.awt.event.WindowAdapter() {
+					@Override
+					public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+						ConfigurationManager.getConfigurationManager().getConfiguration().setRulesStatus(false);
+						frame.dispose();
+					}
+				});
         frame.setVisible(true);
 		return frame;
 
