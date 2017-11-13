@@ -22,7 +22,7 @@ public class Bag {
 	}
 	
 	public Card take() {
-		int randomIndex = (int)(Math.random() * (size-1));
+		int randomIndex = (int)(Math.random() * (size));
 		Card removedCard = bag.remove(randomIndex);
 		size--;
 		return removedCard;
