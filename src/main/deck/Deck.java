@@ -39,7 +39,6 @@ public class Deck implements IDeck {
 	public Card drawCard() {
 		if (!deck.isEmpty()) {
 			Card card = (Card) deck.remove();
-			System.out.println("Drawed: " + card.toString());
 			discardCard(card);
 			return card;
 		}

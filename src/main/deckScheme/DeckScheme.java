@@ -38,7 +38,6 @@ public class DeckScheme implements IDeckScheme {
 			checkLeftOverChance();
 			splitLeftOverChance();
 			getNumberPerChance();
-			bluePrint();
 	}
 	
 	private void splitSchemeCards(ArrayList<Card> cards) {	
