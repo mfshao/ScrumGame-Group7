@@ -409,7 +409,7 @@ public class CardDeckModule extends Observable implements Observer{
 
         frame.getContentPane().add(panel);
         frame.setSize(600, 300);
-        frame.setLocation(0,600);
+        frame.setLocation(0,300);
 
         //might be messy coding show/hiding these windows(?)
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
